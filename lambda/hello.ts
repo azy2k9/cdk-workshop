@@ -1,15 +1,8 @@
-import { Context, APIGatewayProxyCallback, APIGatewayEvent } from 'aws-lambda';
-
-export const lambdaHandler = (
-  event: APIGatewayEvent,
-  _: Context,
-  callback: APIGatewayProxyCallback
-) => {
-  console.log('request: ', JSON.stringify(event, undefined, 2));
-  callback(null, {
+exports.handler = async function(event: any) {
+  console.log("request:", JSON.stringify(event, undefined, 2));
+  return {
     statusCode: 200,
-    body: JSON.stringify({
-      message: 'hello world',
-    }),
-  });
+    headers: { "Content-Type": "text/plain" },
+    body: `Hello, CDK! You've hit ${event.path}\n`
+  };
 };
