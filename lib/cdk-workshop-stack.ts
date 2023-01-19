@@ -7,10 +7,10 @@ export class CdkWorkshopStack extends Stack {
     super(scope, id, props);
 
     // defines an AWS Lambda resource
-    const hello = new lambda.Function(this, 'HelloHandler', {
+    const helloLambda = new lambda.Function(this, 'HelloHandler', {
       runtime: lambda.Runtime.NODEJS_14_X, // use the node 14 runtime
-      code: lambda.Code.fromAsset('lambda'), //code loaded from the lambda directory
-      handler: 'hello.lambdaHandler', // file is "hello", function is "lambdaHandler"
+      code: lambda.Code.fromAsset('lambda'), //code loaded from "lambda" directory
+      handler: 'hello.handler', //file is "hello", function is "handler"
     });
   }
 }
