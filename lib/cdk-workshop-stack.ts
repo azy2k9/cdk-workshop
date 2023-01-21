@@ -12,6 +12,9 @@ export class CdkWorkshopStack extends Stack {
       entry: './lambda/hello.ts',
       handler: "handler",
       runtime: lambda.Runtime.NODEJS_16_X, // use the node 16 runtime
+      bundling: {
+        minify: true, externalModules: ['aws-sdk'],
+      }
     });
   }
 }
