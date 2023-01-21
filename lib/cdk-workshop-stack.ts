@@ -16,14 +16,14 @@ export class CdkWorkshopStack extends Stack {
       }
     });
 
-
     // defines an AWS nodejs function
-    new nodejs.NodejsFunction(this, "HelloHandler", {
+    new nodejs.NodejsFunction(this, 'HelloHandler', {
       entry: './lambda/hello.ts',
-      handler: "handler",
+      handler: 'handler',
       runtime: lambda.Runtime.NODEJS_16_X, // use the node 16 runtime
       bundling: {
-        minify: true, externalModules: ['aws-sdk'],
+        minify: true,
+        externalModules: ['aws-sdk']
       }
     });
   }

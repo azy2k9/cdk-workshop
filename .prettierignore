@@ -1,0 +1,3 @@
+lambda/**/*.d.ts
+lib/**/*.d.ts
+test/**/*.d.ts
