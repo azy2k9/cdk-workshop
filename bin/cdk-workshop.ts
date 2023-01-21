@@ -6,6 +6,6 @@ const app = new cdk.App();
 new CdkWorkshopStack(app, 'CdkWorkshopStack', {
   env: {
     region: process.env.CDK_DEFAULT_REGION,
-    account: process.env.CDK_DEFAULT_ACCOUNT,
-  },
+    account: process.env.CDK_DEFAULT_ACCOUNT
+  }
 });
