@@ -10,7 +10,12 @@
     "test": "jest",
     "cdk": "cdk",
     "format": "prettier --config .prettierrc  'lib/**/*.{ts,js}' 'lambda/**/*.{ts,js}' 'test/**/*.{ts,js}' 'package.json' --write",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/*.{ts,js,json,md}": "npm run format",
+    "**/*.{ts,js}": "npm run lint"
   },
   "devDependencies": {
     "@types/jest": "^27.5.2",
@@ -23,7 +28,9 @@
     "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
     "jest": "^27.5.1",
+    "lint-staged": "^13.1.0",
     "prettier": "^2.8.3",
     "ts-jest": "^27.1.4",
     "ts-node": "^10.9.1",
