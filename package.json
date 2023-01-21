@@ -9,14 +9,20 @@
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",
-    "format": "prettier --config .prettierrc  'lib/**/*.{ts,js}' 'lambda/**/*.{ts,js}' 'test/**/*.{ts,js}' 'package.json' --write"
+    "format": "prettier --config .prettierrc  'lib/**/*.{ts,js}' 'lambda/**/*.{ts,js}' 'test/**/*.{ts,js}' 'package.json' --write",
+    "lint": "eslint . --ext .ts"
   },
   "devDependencies": {
     "@types/jest": "^27.5.2",
     "@types/node": "10.17.27",
     "@types/prettier": "2.6.0",
+    "@typescript-eslint/eslint-plugin": "^5.48.2",
+    "@typescript-eslint/parser": "^5.48.2",
     "aws-cdk": "2.50.0",
     "esbuild": "^0.17.3",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "jest": "^27.5.1",
     "prettier": "^2.8.3",
     "ts-jest": "^27.1.4",
