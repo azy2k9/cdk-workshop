@@ -1,6 +1,6 @@
 # Todos
 
-- [ ] Define a new dynamodb table
+- [x] Define a new dynamodb table
 - [ ] Define a new api gateway
 - [ ] Connect the api gateway to the dynamodb table
 - [ ] Add a new route to the api gateway `[POST] /feed`
