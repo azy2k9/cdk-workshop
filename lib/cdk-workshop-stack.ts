@@ -19,8 +19,8 @@ export class CdkWorkshopStack extends Stack {
     });
 
     // defines an AWS nodejs function
-    const helloHandler = new nodejs.NodejsFunction(this, 'HelloHandler', {
-      entry: './lambda/hello.ts',
+    const fetchFeedsHandler = new nodejs.NodejsFunction(this, 'fetchFeeds', {
+      entry: './lambda/fetchFeeds.ts',
       handler: 'handler',
       runtime: lambda.Runtime.NODEJS_16_X, // use the node 16 runtime
       bundling: {
@@ -33,7 +33,7 @@ export class CdkWorkshopStack extends Stack {
       architecture: lambda.Architecture.ARM_64
     });
 
-    feedTable.grantReadWriteData(helloHandler.role!);
+    feedTable.grantReadWriteData(fetchFeedsHandler.role!);
 
     const rootApi = new apigateway.RestApi(this, 'feed-api', {
       deployOptions: {
@@ -46,7 +46,7 @@ export class CdkWorkshopStack extends Stack {
 
     const getFeeds = feedsEndpoint.addMethod(
       'GET',
-      new apigateway.LambdaIntegration(helloHandler)
+      new apigateway.LambdaIntegration(fetchFeedsHandler)
     );
   }
 }

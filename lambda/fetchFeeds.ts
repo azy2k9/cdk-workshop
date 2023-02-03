@@ -18,8 +18,13 @@ exports.handler = async function (event: any) {
   try {
     const documentClient = new DynamoDB.DocumentClient();
     const results = await documentClient.scan(query).promise();
-    console.log(results);
-    return results;
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        data: results
+      })
+    };
   } catch (error) {
     console.log('hit an error');
     console.log('hit an error');
@@ -31,9 +36,9 @@ exports.handler = async function (event: any) {
     return {
       statusCode: 500,
       headers: { 'Content-Type': 'application/json' },
-      body: {
+      body: JSON.stringify({
         error: 'Error finding table results'
-      }
+      })
     };
   }
 };
