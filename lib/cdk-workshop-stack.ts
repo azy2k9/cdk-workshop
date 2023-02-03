@@ -18,6 +18,8 @@ export class CdkWorkshopStack extends Stack {
       removalPolicy: RemovalPolicy.DESTROY
     });
 
+    console.log(feedTable.tableName);
+
     // defines an AWS nodejs function
     const helloHandler = new nodejs.NodejsFunction(this, 'HelloHandler', {
       entry: './lambda/hello.ts',
@@ -30,7 +32,7 @@ export class CdkWorkshopStack extends Stack {
       environment: {
         DYNAMODB: feedTable.tableName
       },
-      architecture: lambda.Architecture.ARM_64
+      // architecture: lambda.Architecture.ARM_64
     });
 
     feedTable.grantReadWriteData(helloHandler.role!);
