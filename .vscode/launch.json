@@ -1,0 +1,19 @@
+{
+  "configurations": [
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "Local Lambda",
+      "invokeTarget": {
+        "target": "code",
+        "projectRoot": "cdk-workshop/lambda",
+        "lambdaHandler": "hello.handler"
+      },
+      "lambda": {
+        "runtime": "nodejs16.x",
+        "payload": {},
+        "environmentVariables": {}
+      }
+    }
+  ]
+}
