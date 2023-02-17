@@ -1,8 +1,9 @@
 # Todos
 
 - [x] Define a new dynamodb table
-- [ ] Define a new api gateway
-- [ ] Connect the api gateway to the dynamodb table
+- [x] Define a new api gateway
+- [x] Connect the api gateway to the dynamodb table
+- [x] Add a new route to the api gateway `[GET] /feeds`
 - [ ] Add a new route to the api gateway `[POST] /feed`
 - [ ] Add a new route to the api gateway `[GET] /feed`
 - [ ] Add a new route to the api gateway `[POST] /nappy`
