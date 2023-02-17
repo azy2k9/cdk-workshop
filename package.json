@@ -10,8 +10,7 @@
     "test": "jest",
     "cdk": "cdk",
     "format": "prettier --config .prettierrc  'lib/**/*.{ts,js}' 'lambda/**/*.{ts,js}' 'test/**/*.{ts,js}' 'package.json' --write",
-    "lint": "eslint . --ext .ts",
-    "prepare": "husky install"
+    "lint": "eslint . --ext .ts"
   },
   "lint-staged": {
     "**/*.{ts,js,json,md}": "npm run format",
@@ -21,6 +20,7 @@
     "@types/jest": "^27.5.2",
     "@types/node": "10.17.27",
     "@types/prettier": "2.6.0",
+    "@types/uuid": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@typescript-eslint/parser": "^5.48.2",
     "aws-cdk": "2.50.0",
@@ -41,6 +41,7 @@
     "aws-cdk-lib": "2.50.0",
     "aws-lambda": "^1.0.7",
     "aws-sdk": "^2.1300.0",
-    "constructs": "^10.0.0"
+    "constructs": "^10.0.0",
+    "uuid": "^9.0.0"
   }
 }
