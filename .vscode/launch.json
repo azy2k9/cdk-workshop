@@ -3,11 +3,11 @@
     {
       "type": "aws-sam",
       "request": "direct-invoke",
-      "name": "Local Lambda",
+      "name": "cdk-workshop:lambda/addFeed.handler (nodejs16.x)",
       "invokeTarget": {
         "target": "code",
-        "projectRoot": "cdk-workshop/lambda",
-        "lambdaHandler": "hello.handler"
+        "projectRoot": "${workspaceFolder}/",
+        "lambdaHandler": "lambda/addFeed.handler"
       },
       "lambda": {
         "runtime": "nodejs16.x",
