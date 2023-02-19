@@ -11,8 +11,17 @@
       },
       "lambda": {
         "runtime": "nodejs16.x",
-        "payload": {},
-        "environmentVariables": {}
+        "payload": {
+          "json": {
+            "body": {
+              "amount_consumed": 50,
+              "consumed_at": "2023-02-17T17:30:00.000Z"
+            }
+          }
+        },
+        "environmentVariables": {
+          "DYNAMODB": "CdkWorkshopStack-FeedTable1849209D-Q8TT6OF2RBH7"
+        }
       }
     }
   ]
