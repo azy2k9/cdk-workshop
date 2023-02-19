@@ -33,7 +33,7 @@ export class CdkWorkshopStack extends Stack {
       architecture: lambda.Architecture.ARM_64
     });
 
-    feedTable.grantReadWriteData(fetchFeedsHandler.role!);
+    feedTable.grantReadData(fetchFeedsHandler.role!);
 
     const rootApi = new apigateway.RestApi(this, 'feed-api', {
       deployOptions: {
@@ -43,10 +43,31 @@ export class CdkWorkshopStack extends Stack {
     });
 
     const feedsEndpoint = rootApi.root.addResource('feeds');
+    const feedEndpoint = rootApi.root.addResource('feed');
 
-    const getFeeds = feedsEndpoint.addMethod(
+    feedsEndpoint.addMethod(
       'GET',
       new apigateway.LambdaIntegration(fetchFeedsHandler)
+    );
+
+    const addFeedHandler = new nodejs.NodejsFunction(this, 'addFeed', {
+      entry: './lambda/addFeed.ts',
+      handler: 'handler',
+      runtime: lambda.Runtime.NODEJS_16_X, // use the node 16 runtime
+      bundling: {
+        minify: true,
+        externalModules: ['aws-sdk']
+      },
+      environment: {
+        DYNAMODB: feedTable.tableName
+      }
+    });
+
+    feedTable.grantReadWriteData(addFeedHandler.role!);
+
+    feedEndpoint.addMethod(
+      'POST',
+      new apigateway.LambdaIntegration(addFeedHandler)
     );
   }
 }
